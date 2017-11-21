@@ -1,0 +1,138 @@
+/********** 
+*
+* NAV 
+*
+***********/
+.divider {border-right: 1px solid #ccc; margin-left: 10px;}
+.navbar-brand {max-width: 100%;padding: 0;}
+.navbar-nav {float: right; margin: 20px 0 0; z-index: 1000;}
+.navbar-inverse .navbar-nav > li > a {color: #fff; letter-spacing: 2px; text-transform:uppercase; padding-left: 7px;}
+.navbar-nav > li > a {padding-bottom: 15px;padding-top: 8px; font-family: 'Open Sans'; font-weight: 700; font-size: 14px;}
+.navbar-inverse .navbar-nav > li > a:hover {color: #00b0f0;}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {color: #666;}
+.navbar.navbar-inverse.navbar-fixed-top {
+  background: #333;
+  border: medium none;
+  height: 63px;
+  }
+  .navbar-inverse .navbar-toggle {
+    border-color: #666;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #00b0f0;
+  background-color: #fff;
+  }
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: transparent;
+    border: none;
+}
+.navbar-collapse {
+    border-top: none;
+    box-shadow: none;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+  background: #00b0f0;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #00b0f0;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/* -=-=-=-=-=- DROPDOWNS -=-=-=-=-=-=- */
+
+.dropdown-menu > li > a {
+     padding: 8px 20px;
+  }
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #5cb85c;
+    color: #fff;
+    outline: 0 none;
+    text-decoration: none;
+}
+/**Mega Menu **/
+.navbar .container {
+    position: relative;
+}
+.navbar-nav, .navbar .collapse, .navbar-nav li {
+  position: static;
+}
+.menu-item-has-children, .menu-item-has-children .dropdown-menu {
+  left: auto;
+}
+.menu-item-has-children .dropdown-menu {
+  width: auto !important;
+}
+
+
+/**** Navbar animation */
+#logo img {
+  max-width:350px;
+  padding-top: 0;
+  transition: all .5s ease;
+}
+.navbar-fixed-top {
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 998;
+  top: 0;
+  transition: all .5s ease;
+    .scrolled {
+      top: -31px;
+      box-shadow: 0 8px 6px -6px #999;
+        #logo img {
+          max-width: 150px;
+          padding-top: 34px;
+      }
+      li > a {
+        padding-top: 17px;
+      }
+    }
+}
+
+
+@include break(767px) {
+    /** 
+    make dropdown active on hover and fade in - 
+    change to 992px for alt breakpoint and swap bootstrap.css files 
+    **/
+
+  ul.nav li.dropdown > ul.dropdown-menu{
+    visibility:hidden;
+    display:block;
+    opacity:0;
+    margin-top: 10px !important;
+    transition: all  0.5s ease-in-out;
+  }
+  ul.nav li.dropdown:hover > ul.dropdown-menu{
+    visibility:visible;
+    opacity: 1;
+    display: block;
+    margin-top: 0 !important; 
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    transition: all  0.5s ease-in-out;
+  } 
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    border-color: #fff;
+    color: #00b0f0;
+  }
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color:transparent;
+    color: #666;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,89 @@
+/*********************************
+*
+*   Main Styles
+*
+*********************************/
+
+* {
+    outline: 0;
+    outline:none;
+    -moz-outline-style: none;
+      &:active {}
+      &:focus {}
+      &:visited {}
+}
+a, a:active, a:focus, 
+button, button:focus, button:active, 
+.btn, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+    outline: none;
+    outline: 0;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+}
+a {
+  transition:color .2s linear;
+  color: $link;
+  text-decoration: none;
+  &:visited {
+    color:  $linkvisited;
+    text-decoration: none !important;
+    background: none;
+  }
+  &:hover {
+    color: $linkhover;
+    text-decoration: none !important;
+  }
+  &:focus {
+    text-decoration: none !important;
+  }
+  &:active {
+    color: $link;
+    text-decoration: none;
+    outline: none;
+    -moz-outline-style: none;
+  }
+}
+
+html {
+  min-width: 320px !important;
+} 
+
+body {
+  font-size: $main-font-size;
+  font-family: $main-font;
+  line-height: $main-line-height;
+  color: $maincolor;
+  padding-bottom: 0;
+  /* box shadow on top of page */
+  &:before { 
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    z-index: 100;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family:  $displayfont;
+  color:        $hilite-color;
+}
+
+.no-pad {padding: 0;}
+.logo {
+    margin-top: 3px;
+}
+.centered {
+  margin: 0 auto;
+} 
+#content {
+    margin-top: 63px;
+    overflow: hidden;
+}

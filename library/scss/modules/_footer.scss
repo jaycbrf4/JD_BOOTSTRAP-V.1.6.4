@@ -1,0 +1,52 @@
+/**** 
+*  
+* FOOTER 
+*
+****/
+
+footer {
+  background: $footerbg;
+}
+#footer a {
+  transition:color .2s linear;
+  color: $footerlink;
+  text-decoration: none;
+  &:visited {
+    color:  $footerlink;
+    text-decoration: none !important;
+    background: none;
+  }
+  &:hover {
+    color: $footerlink-hover;
+    text-decoration: none !important;
+  }
+  &:focus {
+    text-decoration: none !important;
+  }
+  &:active {
+    color: $footerlink;
+    text-decoration: none;
+    outline: none;
+    -moz-outline-style: none;
+  }
+}
+
+.scrollup{
+  position:fixed;
+  bottom: 30px;
+  right: 30px;
+  display:none;
+  color: $scroll-color;
+  opacity: .80;
+  z-index: 1000;
+    &:before {
+      content: "\f0aa";
+      font-family: 'FontAwesome';
+      font-size:36px;
+    }
+    &:hover {
+      opacity: 1;
+      color: $scroll-hover;
+      cursor: pointer;
+    }
+}
