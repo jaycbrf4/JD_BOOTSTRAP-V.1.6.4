@@ -3,18 +3,7 @@
 Author: Jay Deutsch - http://hudsonvalleywebdesign.net
 */
 
-
-//Move admin bar down for Bootstrap fixed-top nav
-  function fb_move_admin_bar() { ?>
-    <style type="text/css">
-      body.admin-bar .navbar-fixed-top {
-      margin-top: 32px;
-      }
-    </style>
-  <?php 
   show_admin_bar( false ); //set to false to hide admin bar alltogether
-  }
-add_action( 'wp_head', 'fb_move_admin_bar' );
 
 // Function to remove menu items from admin area
 // since we are not using comments or blog posts and never use tools - we can hide their menu items
@@ -35,20 +24,36 @@ function remove_wp_admin_bar_items( $wp_admin_bar ) {
 
   function JD_BOOTSTRAP_theme_setup() {
     add_theme_support( 'post-thumbnails' );
+    //set_post_thumbnail_size( 400, 600 );
   }
 add_action( 'after_setup_theme', 'JD_BOOTSTRAP_theme_setup' );
+
+//remove default images sizes so there are no extra images in media folder
+function add_image_insert_override($sizes){
+    unset( $sizes['thumbnail']);
+    unset( $sizes['medium']);
+    unset( $sizes['large']);
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'add_image_insert_override' );
 
   // remove WP version from RSS
   function JD_bootstrap_rss_version() { '__return_empty_string'; }
 add_filter('the_generator', 'JD_bootstrap_rss_version');
 
 // Fixing the Read More in the Excerpts
-// This removes the annoying […] to a Read More link
+// This removes the annoying [] to a Read More link
   function JD_bootstrap_excerpt_more($more) {
     global $post;
-    return '...  <a href="'. get_permalink($post->ID) . '" class="more-link" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
+    return '… <a href="'. get_permalink($post->ID) . '" class="more-link" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
   }
 add_filter('excerpt_more', 'JD_bootstrap_excerpt_more');
+
+/* change excerpt length */
+function new_excerpt_length($length) {
+return 70;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
 
 /* remove Howdy */
 add_action( 'admin_bar_menu', 'wp_admin_bar_my_custom_account_menu', 11 );
@@ -125,7 +130,7 @@ add_theme_support( 'custom-header', $args );
 
 /* custom functions for log-in screen */
   function custom_login_css() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'library/login/style.css" />';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/login/style.css" />';
   }
 add_action('login_head', 'custom_login_css');
 
@@ -198,6 +203,17 @@ add_filter( 'get_image_tag_class', '__return_empty_string' );
     return $class;
   }
 add_filter('get_image_tag_class', 'image_tag_class' );
+
+
+//remove class from the_post_thumbnail
+function the_post_thumbnail_remove_class($output) {
+        $output = preg_replace('/class=".*?"/', 'class="featured-image img-responsive"', $output);
+        return $output;
+}
+add_filter('post_thumbnail_html', 'the_post_thumbnail_remove_class');
+
+// Add a filter to remove srcset attribute from generated <img> tag
+add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 
 /*
 ** SEO Meta-Box plugin 
@@ -306,9 +322,6 @@ add_action('admin_menu', 'plib_add_box');
     echo '</table>';
 
   }
-
-
-
 
 //load script to count characters in title and description
   function load_counter_script_wp_admin() {
