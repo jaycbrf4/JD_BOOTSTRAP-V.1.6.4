@@ -22,7 +22,7 @@ function my_contact_form_generate_response($type, $message)
 
 // Response messages
 $missing_content 	= "Please supply all information.";
-$email_invalid   		= "Email Address Invalid.";
+$email_invalid   	= "Email Address Invalid.";
 $message_unsent  	= "Message was not sent. Try Again.";
 $message_sent    	= "Thanks! Your message has been sent.";
  
@@ -31,15 +31,15 @@ $message_sent    	= "Thanks! Your message has been sent.";
 $userVariables = [
 	'First Name' 	=> 'first_name',
 	'Last Name' 	=> 'last_name',
-	'Phone' 			=> 'phone',
-	'Email'				=> 'email',
+	'Phone' 		=> 'phone',
+	'Email'			=> 'email',
 	'Comment' 		=> 'comment'
 ];
 
 // Instantiate variables for failed, successful validated fields
 $failedFields 	= [];
-$validFields 		= [];
-$failedKeys			= [];
+$validFields 	= [];
+$failedKeys	    = [];
  
 // Loop through each variable defined above, and check it's validity as a non-blank string. 
 // If successful, add it to the message array and strip all tags for security, and trim whitespace
@@ -137,139 +137,139 @@ else if($_POST['submitted'] || !empty($failedFields))
 <!-- End Form Logic -->
 
 
-    <?php get_header(); ?>
-    <div id="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div id="main" class="clearfix" role="main">
-                    <div class="container wow fadeInUp">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h1 class="page-title">Contact Us</h1>
-                                <div id="respond">
-                                    <?php echo $response; ?>
-                                    <form class="form-horizontal well" action="<?php the_permalink(); ?>" method="post" id="contact_form">
-                                        <fieldset>
-                                            <!-- Form Name -->
-                                            <legend>Do you have questions, interested in a product or would like to place an order?</legend>
-                                            <p>Please fill out the contact form and we will get back to you ASAP!</p>
-                                            <div class="col-sm-6">
-                                                <!-- Text input-->
-                                                <div class="form-group <?php echo getErrorClass($failedKeys, 'first_name'); ?>">
-                                                    <label class="control-label">First Name</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input name="first_name" placeholder="First Name" class="form-control" type="text" value="<?php echo esc_attr($_POST['first_name']); ?>" required>
-                                                    </div>
-                                                </div>
-                                                <!-- Text input-->
-                                                <div class="form-group <?php echo getErrorClass($failedKeys, 'last_name'); ?>">
-                                                    <label class="control-label">Last Name</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input name="last_name" placeholder="Last Name" class="form-control" type="text" value="<?php echo esc_attr($_POST['last_name']); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/.col-->
-                                            <div class="col-sm-6">
-                                                <!-- Text input-->
-                                                <div class="form-group <?php echo getErrorClass($failedKeys, 'email'); ?>">
-                                                    <label class="control-label">E-Mail</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                                        <input name="email" placeholder="E-Mail Address" class="form-control" type="email" value="<?php echo esc_attr($_POST['email']); ?>" required>
-                                                    </div>
-                                                </div>
-                                                <!-- Text input-->
-                                                <div class="form-group <?php echo getErrorClass($failedKeys, 'phone'); ?>">
-                                                    <label class="control-label">Phone #</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                                        <input name="phone" placeholder="(855)555-1212" class="form-control" type="text" value="<?php echo esc_attr($_POST['phone']); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/.col-->
-                                            <div class="col-sm-12">
-                                                <!-- Text area -->
-                                                <div class="form-group <?php echo getErrorClass($failedKeys, 'comment'); ?>">
-                                                    <label class="control-label">Your Message</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                                        <textarea class="form-control" name="comment" required><?php echo esc_textarea($_POST['comment']); ?></textarea>
-                                                    </div>
-                                                </div>
-                                                <!--Anti-Spam Field-->
-                                                <div class="form-group hidden" id="gotcha">
-                                                    <label class="control-label">Leave this field empty</label>
-                                                    <div class="input-group">
-                                                        <input name="gotcha" class="form-control" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group hidden">
-                                                    <input type="hidden" name="submitted" value="1">
-                                                </div>
-                                                <!-- Button -->
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-info">Send
-                                                        <span class="glyphicon glyphicon-send"></span>
-                                                    </button>
-                                                </div>
-                                            </div><!--/.col-md-8-->
-                                        </fieldset>
-                                    </form>
-																						
-									<script>
-										// Add/Remove Bootstrap "has-error" class from invalid fields on key-up and blur
-										jQuery('#contact_form :input').keyup(function ()
-										{
-											var formElement 	= jQuery(this);
-												  formGroup 	= formElement.closest('.form-group');
-											
-											if(formGroup.hasClass('has-error') && jQuery.trim(formElement.val()).length)
-											{
-												formGroup.removeClass('has-error');
-											}
-										});
+<?php get_header(); ?>
+<div id="main" class="clearfix" role="main">
+  <div id="content">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="page-title">Contact Us</h1>
+            <div id="respond">
+              
+            <?php echo $response; ?>
+              <form class="form-horizontal well" action="<?php the_permalink(); ?>" method="post" id="contact_form">
+                <fieldset>
+                  <legend>Do you have questions, interested in a product or would like to inquire about delivery options?</legend>
+                  <p>Please fill out the contact form and we will get back to you ASAP!</p>
+                    <div class="col-sm-6">
+                      <!-- Text input-->
+                      <div class="form-group <?php echo getErrorClass($failedKeys, 'first_name'); ?>">
+                        <label class="control-label">First Name</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="first_name" placeholder="First Name" class="form-control" type="text" value="<?php echo esc_attr($_POST['first_name']); ?>" required>
+                          </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group <?php echo getErrorClass($failedKeys, 'last_name'); ?>">
+                          <label class="control-label">Last Name</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="last_name" placeholder="Last Name" class="form-control" type="text" value="<?php echo esc_attr($_POST['last_name']); ?>" required>
+                          </div>
+                        </div>
+                      </div><!--/.col-->
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="form-group <?php echo getErrorClass($failedKeys, 'email'); ?>">
+                          <label class="control-label">E-Mail</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input name="email" placeholder="E-Mail Address" class="form-control" type="email" value="<?php echo esc_attr($_POST['email']); ?>" required>
+                          </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group <?php echo getErrorClass($failedKeys, 'phone'); ?>">
+                          <label class="control-label">Phone #</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input name="phone" placeholder="(855)555-1212" class="form-control" type="text" value="<?php echo esc_attr($_POST['phone']); ?>" required>
+                          </div>
+                        </div>
+                      </div><!--/.col-->
+                      <div class="col-sm-12">
+                        <!-- Text area -->
+                        <div class="form-group <?php echo getErrorClass($failedKeys, 'comment'); ?>">
+                          <label class="control-label">Your Message</label>
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            <textarea class="form-control" name="comment" required><?php echo esc_textarea($_POST['comment']); ?></textarea>
+                          </div>
+                        </div>
+                        <!--Anti-Spam Field-->
+                        <div class="form-group hidden" id="gotcha">
+                          <label class="control-label">Leave this field empty</label>
+                          <div class="input-group">
+                            <input name="gotcha" class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group hidden">
+                          <input type="hidden" name="submitted" value="1">
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-info">Send
+                            <span class="glyphicon glyphicon-send"></span>
+                          </button>
+                        </div>
+                      </div><!--/.col-md-8-->
+                    </fieldset>
+                  </form>										
+		<script>
+		// Add/Remove Bootstrap "has-error" class from invalid fields on key-up and blur
+		jQuery('#contact_form :input').keyup(function ()
+		{
+			var formElement = jQuery(this);
+			formGroup 	= formElement.closest('.form-group');
 
-										jQuery('#contact_form :input').blur(function ()
-										{
-											var formElement 	= jQuery(this);
-												  formGroup 	= formElement.closest('.form-group');
-											
-											if(jQuery.trim(formElement.val()).length==0)
-											{
-												formGroup.addClass('has-error');
-											}
-										});
-									</script>
+			if(formGroup.hasClass('has-error') && jQuery.trim(formElement.val()).length)
+			{
+			formGroup.removeClass('has-error');
+			}
+			});
 
-                                </div><!--/.respond-->
-                            </div><!--/.col-->
-                        </div><!-- /.row-->
-                    </div><!--/.container-->
-                    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix'); ?> role="article">
-                        <section class="post_content">
-                            <?php the_content(); ?>
-                        </section><!-- end article header -->
-                    </article><!-- end article -->
-                    <?php endwhile; ?>
-                    <?php else : ?>
-                    <article id="post-not-found">
-                        <header>
-                            <h1><?php _e("Not Found", "JD_BOOTSTRAP"); ?></h1>
-                        </header>
-                        <section class="post_content">
-                            <p>
-                                <?php _e("Sorry, but the requested resource was not found on this site.", "JD_BOOTSTRAP"); ?>
-                            </p>
-                        </section>
-                    </article>
-                    <?php endif; ?>
-                </div><!-- /main -->
-            </div><!--/row-->
-        </div><!-- /container-fluid -->
-    </div><!-- /content -->
+			jQuery('#contact_form :input').blur(function ()
+			{
+			var formElement = jQuery(this);
+			formGroup 	= formElement.closest('.form-group');
+
+			if(jQuery.trim(formElement.val()).length==0)
+			{
+			formGroup.addClass('has-error');
+			}
+			});
+		</script>
+
+              </div><!--/.respond-->
+          </div><!--/.col-->
+      </div><!-- /.row-->
+    </div><!--/.container-->
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix'); ?> role="article">
+        <section class="post_content">
+            <?php the_content(); ?>
+        </section><!-- end article header -->
+    </article><!-- end article -->
+
+    <?php endwhile; ?>
+    <?php else : ?>
+    <article id="post-not-found">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <header>
+              <h1><?php _e("Not Found", "JD_BOOTSTRAP"); ?></h1>
+            </header>
+            <section class="post_content">
+              <p><?php _e("Sorry, but the requested resource was not found on this site.", "JD_BOOTSTRAP"); ?></p>
+            </section>
+          </div><!-- /.col-sm-12 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->          
+    </article>
+
+<?php endif; ?>
+
+  </div><!-- /content -->
+</div><!-- /main -->
     <?php get_footer(); ?>
