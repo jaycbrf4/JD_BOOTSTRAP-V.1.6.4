@@ -1,16 +1,16 @@
 <?php get_header(); ?>
-
-   <div id="content">
-     <div  class="container">
-       <div class="row">
-          <div id="main" class="clearfix col-xs-12" role="main">
-
-            <?php woocommerce_content(); ?>
+<div id="main" class="clearfix col-xs-12" role="main">
+ <div id="content">
+   <div  class="container">
+     <div class="row">
         
-          </div> <!-- /main -->
-        </div><!--/row-->
-      </div><!-- /container-->    
-    </div> <!-- /content -->
 
+          <?php woocommerce_content(); ?>
+      
+        
+      </div><!--/row-->
+    </div><!-- /container-->    
+  </div> <!-- /content -->
+</div> <!-- /main -->
 
 <?php get_footer(); ?>
