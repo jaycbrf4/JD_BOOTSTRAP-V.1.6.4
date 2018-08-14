@@ -54,7 +54,7 @@ function JD_bootstrap_register_sidebars() {
               'id'   => 'mega-menu-item-' . $item->ID,
               'description' => 'Mega Menu items',
               'name' => $item->title . ' - Mega Menu',
-              'before_widget' => '<li class="mega-menu-item">',
+              'before_widget' => '<li id="%1$s" class="mega-menu-item">',
               'after_widget' => '</li>', 
 
             ));
@@ -110,19 +110,19 @@ add_action( 'widgets_init', 'JD_bootstrap_register_sidebars' ); // This function
 function JD_BOOTSTRAP_scripts_styles() {
   // Loads Bootstrap minified JavaScript file.
   wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/library/js/bootstrap.min.js', array('jquery'),'3.3.7', true );
-  // Loads WoW JavaScript file.
+        // Loads WoW JavaScript file.
   wp_enqueue_script('WoWjs', get_template_directory_uri() . '/library/js/wow.js', array('jquery'),'', true );
   // Loads NivoLightbox JavaScript file.
-  wp_enqueue_script('nivolightobx', get_template_directory_uri() . '/library/nivolightbox/nivo-lightbox.min.js', array('jquery'),'1.2.0', true );
+  wp_enqueue_script('nivolightbox', get_template_directory_uri() . '/library/nivolightbox/nivo-lightbox.min.js', array('jquery'),'1.3.1', true );
   // Loads Bootstrap minified CSS file.
   wp_enqueue_style('bootstrapcss', get_template_directory_uri() . '/library/css/bootstrap.min.css', false ,'3.3.7');
-  // Loads Font-Awesome CSS file.
+   // Loads Font-Awesome CSS file.
   wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/library/css/font-awesome.min.css', false ,'4.6.3');
   // Loads NivoLightbox CSS file.
-  wp_enqueue_style('nivolightboxcss', get_template_directory_uri() . '/library/nivolightbox/nivo-lightbox.css', false ,'1.2.0');
-  // Loads NivoLightbox theme CSS file.
+  wp_enqueue_style('nivolightboxcss', get_template_directory_uri() . '/library/nivolightbox/nivo-lightbox.css', false ,'1.3.1');
+    // Loads NivoLightbox theme CSS file.
   wp_enqueue_style('nivolightboxthemecss', get_template_directory_uri() . '/library/nivolightbox/themes/default/default.css', false ,'1.0');
-  // Loads Animate.CSS file.
+   // Loads Animate.CSS file.
   wp_enqueue_style('animatecss', get_template_directory_uri() . '/library/css/animate.css', false ,'');
   // Loads our main stylesheet LAST
   wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css', false ,'1.6');
@@ -142,6 +142,8 @@ function modify_jquery_version() {
   }
 }
 add_action('init', 'modify_jquery_version');
+
+
 
 
 require_once('includes/theme-functions.php');
