@@ -1,8 +1,8 @@
 === JD-Bootstrap ===
 Contributors: JayDeutsch @jaycbrf4
 Tags: Completely Custom Built, Responsive, Bootstrap, FontAwesome, Nivo-Lightbox, Animate.css, Wow.js
-Tested up to: 4.9.1
-Version 1.6.3
+Tested up to: 4.9.8
+Version 1.6.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,8 +71,10 @@ To change breakpoint for hamburger menu swap Bootstrap.css files
     = added support for WordPress 4.9
 =v.1.6.3
     =added custom mega menu to navwalker
-    https://github.com/jaycbrf4/wp_boostrap-navwalker-mega
+        https://github.com/jaycbrf4/wp_boostrap-navwalker-mega
 =v1.6.4
+    =ported to sass
+=v1.6.5
     =update NivoLightbox 1.3.1
     
 
